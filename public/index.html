@@ -720,12 +720,31 @@
     }
   }, 1000);
 </script>
-    <script src="supabase.min.js"></script>
+
+<!-- Baru lanjut ke sini -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+
 <script>
 window.addEventListener("DOMContentLoaded", () => {
-  const supabase = window.supabase.createClient(...)
+  const supabase = window.supabase.createClient(
+    document.body.getAttribute('data-url'),
+    document.body.getAttribute('data-key')
+  );
+
+  console.log("✅ Supabase initialized", supabase);
+
+  // Contoh fetch komentar
+  supabase.from('comment').select('*').then(({ data, error }) => {
+    if (error) {
+      console.error("❌ Error fetch komentar:", error);
+    } else {
+      console.log("✅ Komentar:", data);
+    }
+  });
 });
 </script>
+
+
 
 </body>
 
