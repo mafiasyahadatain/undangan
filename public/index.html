@@ -730,6 +730,22 @@
 
   console.log("✅ Supabase initialized", supabase);
 </script>
+    <script>
+  window.addEventListener("DOMContentLoaded", () => {
+    // Hide loading page
+    const loading = document.getElementById('loading');
+    if (loading) {
+      loading.classList.add('d-none');
+    }
+
+    // Show open invitation
+    const openInvitation = document.getElementById('open-invitation');
+    if (openInvitation) {
+      openInvitation.classList.remove('d-none');
+    }
+  });
+</script>
+
 <script>
   const commentForm = document.getElementById('comment-form');
   if (commentForm) {
